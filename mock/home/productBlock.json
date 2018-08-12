@@ -1,0 +1,18 @@
+{
+    "pb": [{
+        "name": "休闲零食",
+        "describe": "满200减50",
+        "productImg": "https://img20.360buyimg.com/babel/s350x250_jfs/t23899/300/852272489/54956/7a044416/5b45d71aN25e2776b.jpg",
+        "id": "180807"
+    }, {
+        "name": "数码馆",
+        "describe": "爆款直降",
+        "productImg": "https://img14.360buyimg.com/babel/s350x250_jfs/t19294/44/1781409077/19698/fed94123/5ad8c8c7N980d0ee5.jpg",
+        "id": "180817"
+    }, {
+        "name": "个护清洁",
+        "describe": "超值精选",
+        "productImg": "https://img12.360buyimg.com/babel/s350x250_jfs/t23893/19/1562983479/74551/2293dbbd/5b62e2f5N55697645.jpg",
+        "id": "180817"
+    }]
+}
