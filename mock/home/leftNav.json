@@ -95,6 +95,199 @@
         "url": "deserunt quis consectetur cupidatat"
       }
     ]
+  },
+  {
+    "type": "家电",
+    "products": [
+      {
+        "name": "空调",
+        "url": "fugiat pariatur dolore consectetur"
+      },
+      {
+        "name": "洗衣机",
+        "url": "Ut incididunt"
+      },
+      {
+        "name": "电冰箱",
+        "url": "in ea ex do"
+      },
+      {
+        "name": "榨汁机",
+        "url": "qui commodo ullamco ex"
+      }
+    ]
+  },
+  {
+    "type": "数码",
+    "products": [
+      {
+        "name": "平板",
+        "url": "sed ipsum mollit"
+      },
+      {
+        "name": "笔记本",
+        "url": "in eu fugiat"
+      },
+      {
+        "name": "电脑主机",
+        "url": "ipsum mollit dese"
+      },
+      {
+        "name": "显示器",
+        "url": "ipsum mollit dese"
+      },
+      {
+        "name": "鼠标键盘",
+        "url": "laborum irure Duis officia"
+      }
+    ]
+  },
+  {
+    "type": "手机",
+    "products": [
+      {
+        "name": "iPhone",
+        "url": "mollit nisi"
+      },
+      {
+        "name": "三星",
+        "url": "deserunt quis consectetur cupidatat"
+      },
+      {
+        "name": "小米",
+        "url": "exercitation nostrud ut"
+      },
+      {
+        "name": "华为",
+        "url": "deserunt quis consectetur cupidatat"
+      },
+      {
+        "name": "魅族",
+        "url": "exercitation nostrud ut"
+      },
+      {
+        "name": "OPPO",
+        "url": "cillum culpa"
+      }
+    ]
+  },
+  {
+    "type": "美妆",
+    "products": [
+      {
+        "name": "防晒",
+        "url": "mollit nisi"
+      },
+      {
+        "name": "保湿",
+        "url": "deserunt quis consectetur cupidatat"
+      },
+      {
+        "name": "精华",
+        "url": "exercitation nostrud ut"
+      },
+      {
+        "name": "卸妆",
+        "url": "deserunt quis consectetur cupidatat"
+      }
+    ]
+  },
+  {
+    "type": "家电",
+    "products": [
+      {
+        "name": "空调",
+        "url": "fugiat pariatur dolore consectetur"
+      },
+      {
+        "name": "洗衣机",
+        "url": "Ut incididunt"
+      },
+      {
+        "name": "电冰箱",
+        "url": "in ea ex do"
+      },
+      {
+        "name": "榨汁机",
+        "url": "qui commodo ullamco ex"
+      }
+    ]
+  },
+  {
+    "type": "数码",
+    "products": [
+      {
+        "name": "平板",
+        "url": "sed ipsum mollit"
+      },
+      {
+        "name": "笔记本",
+        "url": "in eu fugiat"
+      },
+      {
+        "name": "电脑主机",
+        "url": "ipsum mollit dese"
+      },
+      {
+        "name": "显示器",
+        "url": "ipsum mollit dese"
+      },
+      {
+        "name": "鼠标键盘",
+        "url": "laborum irure Duis officia"
+      }
+    ]
+  },
+  {
+    "type": "手机",
+    "products": [
+      {
+        "name": "iPhone",
+        "url": "mollit nisi"
+      },
+      {
+        "name": "三星",
+        "url": "deserunt quis consectetur cupidatat"
+      },
+      {
+        "name": "小米",
+        "url": "exercitation nostrud ut"
+      },
+      {
+        "name": "华为",
+        "url": "deserunt quis consectetur cupidatat"
+      },
+      {
+        "name": "魅族",
+        "url": "exercitation nostrud ut"
+      },
+      {
+        "name": "OPPO",
+        "url": "cillum culpa"
+      }
+    ]
+  },
+  {
+    "type": "美妆",
+    "products": [
+      {
+        "name": "防晒",
+        "url": "mollit nisi"
+      },
+      {
+        "name": "保湿",
+        "url": "deserunt quis consectetur cupidatat"
+      },
+      {
+        "name": "精华",
+        "url": "exercitation nostrud ut"
+      },
+      {
+        "name": "卸妆",
+        "url": "deserunt quis consectetur cupidatat"
+      }
+    ]
   }
+
 ]
 }

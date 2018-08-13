@@ -31,7 +31,7 @@ SearchFn.prototype = {
 }
 
 /******************************
- * date:2018/08/12
+ * date:2018/08/13
  * name:首页的左侧导航条
  */
 
@@ -40,7 +40,52 @@ function SubNavFn(n){
 	this.init();
 }
 SubNavFn.prototype = {
+	init:function(){
+		var _this = this;
+		_this.getJson();
+	},
 
+	getJson:function(){
+        var _this = this;
+		getAjax(APILIST.subNavApi, function(d){
+			// console.log("testMock", d);
+			_this.createDom(d.productList);
+		});
+	},
+	createDom:function(nav){
+		var _this = this;
+		// console.log(nav);
+		var typeLen = nav.length;
+		for( let i=0; i<typeLen; i++){
+			var subLen = nav[i].products.length;
+			console.log(subLen);
+			$(`<li>
+				<a href="#">${nav[i].type}</a>
+				<div class="showNavPopup"></div>
+			</li>`)
+			.appendTo(_this.subNavProductId);
+			for (let j = 0; j < subLen; j++) {
+				$(`<p>${nav[i].products[j].name}</p>`).appendTo($('#subNavProductId>li>div:last'));
+			}
+		}
+		// 给导航栏绑定事件
+		var allNav = _this.subNavProductId.children();
+		_this.mouseOverFn(allNav);
+		_this.mouseOutFn(allNav);
+	},
+
+	// 次级导航的消失和隐藏
+	mouseOverFn:function(allNav){
+		allNav.on('mouseover', function(){
+			$(this).find('div').show();
+		});
+		
+	},
+	mouseOutFn:function(allNav){
+		allNav.on('mouseout', function(){
+			$(this).find('div').hide();
+		});
+	}
 
 }
 
