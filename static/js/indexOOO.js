@@ -90,6 +90,141 @@ SubNavFn.prototype = {
 }
 
 /******************************
+ * date:2018/08/13
+ * name:首页的轮播图
+ */
+// 构造器
+function SlideWrapFn( _slideIdConfig ){
+	for( var i in _slideIdConfig ){
+		this[i] = _slideIdConfig[i];
+	}
+	this.tempI 	 = 0;
+	this.liWidth = 0;
+	this.imgNum  = slideImgUrl.urls.length;
+	
+	this.init();
+}
+SlideWrapFn.prototype = {
+	init: function(){
+		var _this    = this;
+		var imagesId = _this.imageDivId;
+		var dotId    = _this.iconListId;
+		_this.ulDom(imagesId, dotId);
+
+		_this.leftBtn();
+		_this.rightBtn();
+		_this.dotBtn();
+
+	},
+
+	// 生成图片栏 及小圆点 DOM, 并补小圆点的样式
+	ulDom: function(imagesId, dotId){
+		var _this = this;
+		var imgUrls = slideImgUrl.urls;
+		var imgNum  = this.imgNum;
+		
+		_this.createImageDom(imgUrls, imgNum, imagesId);
+		_this.createDotDom(imgNum, dotId);
+
+		_this.dotsStyle(imgNum);
+
+	},
+	// 生成图片栏Dom
+	createImageDom: function(imgUrls, imgNum, imagesId){
+		var _this = this;
+		for (var i = 0; i < imgNum; i++) {
+		 	$(`<li><img src = '${imgUrls[i]}' /></li>`).appendTo(imagesId);
+		 } 
+		this.liWidth = imagesId.children().first().width();
+	},
+	// 生成小圆点Dom
+	createDotDom: function(n, dotId){
+		// console.log("dotId",dotId);
+		for (var i = 0; i < n; i++) {
+			$(`<p></p>`).appendTo(dotId);
+		}
+		dotId.children().first().addClass('redD');
+	},
+	// 小圆点组及半透明背景样式设置
+	dotsStyle: function(n){
+		var _this = this;
+		// 单个小圆点直径12px + 左右margin 6px 6px
+		var dotsWidth = n * 28;
+		var halfWidth = dotsWidth * 0.5 + 6;
+ 		// 小圆点组样式
+		_this.iconListId.css({
+			'margin-left': `${-1 * halfWidth}px`
+		});
+		// 小圆点背景样式
+		_this.slidePointBgId.css({
+			'width': `${dotsWidth}px`,
+			'margin-left': `${-1 * halfWidth}px`
+		});
+	},
+
+	// **** 以下是绑定事件
+
+	// 左移按钮 图片栏左移动 切换到第I张
+	leftBtn: function(){
+		var _this = this;
+		_this.toLeftBtnId.on('click', function(){
+			if(_this.tempI < (_this.imgNum - 1)){
+				_this.tempI++;
+			}else{
+				_this.tempI = 0;
+			}
+			// console.log(_this.tempI)
+			_this.switchToI(_this.tempI);
+		});
+	},
+	// 右移按钮 图片栏右移动 切换到第I张
+	rightBtn: function(){
+		var _this = this;
+		_this.toRightBtnId.on('click', function(){
+			// 图片栏移动
+			if(_this.tempI > 0){
+				_this.tempI--;
+			}else{
+				_this.tempI = _this.imgNum - 1;
+			}
+			// console.log(_this.tempI);
+			_this.switchToI(_this.tempI);
+		});
+	},
+	// 点击小圆点 切换到第I张
+	dotBtn: function(){
+		var _this = this;
+		var dots = _this.iconListId.children();
+ 		dots.on('click', function(){
+ 			_this.tempI = $(this).index();
+ 			// console.log(_this.tempI);
+ 		// 	slideAnimate( imagesId, _this.tempI, _this.liWidth );
+			// _this.tempIDot(_this.tempI);
+			_this.switchToI(_this.tempI);
+		});
+	},
+
+	// 图片及小圆点 切换到第 i 个 
+	switchToI: function(i){
+		var _this = this;
+		var id = _this.imageDivId;
+		var d = _this.liWidth;
+		slideAnimate( id, i, d);
+		_this.tempIDot(i);
+	},
+	// 第tempI个小圆点选中状态(变红 
+	tempIDot: function(i){
+		var _this = this;
+		var dots = _this.iconListId.children();
+		dots.removeClass('redD')
+			.eq(i).addClass('redD');
+
+	}
+
+	
+}
+
+/******************************
  * date:2018/08/12
  * name:首页的享品质
  */
