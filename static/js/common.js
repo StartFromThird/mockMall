@@ -30,3 +30,19 @@ function slideAnimate( id, i, w ){
         left: -( i * w )
     },200);
 }
+/******************************
+ * date:2018/08/17
+ * name:给数字i补0使得数字长度大于len
+ */
+function add0( i, len ){
+    i = i + '';
+    if(i.length < len){
+        var k = len - i.length;
+        for(var j=0; j<k; j++ ){
+            i = '0' + i;
+        }
+    }
+    return i;
+}
+// add0(123, 4); -- '01234'
+
