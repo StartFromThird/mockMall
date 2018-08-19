@@ -1,0 +1,65 @@
+{
+  "id": 1300, 
+  "areas": [
+    {
+      "areaId": 130001,
+      "areaName": "硚口区"
+    },
+    {
+      "areaId": 130002,
+      "areaName": "武昌区"
+    },
+    {
+     "areaId": 130003,
+      "areaName": "武汉经济技术开发区"
+    },
+    {
+      "areaId": 130004,
+      "areaName": "江岸区"
+    },
+    {
+     "areaId": 130005,
+      "areaName": "江汉区"
+    },
+    {
+      "areaId": 130006,
+      "areaName": "蔡甸区"
+    },
+    {
+     "areaId": 130007,
+      "areaName": "江夏区"
+    },
+    {
+      "areaId": 130008,
+      "areaName": "新洲区"
+    },
+    {
+      "areaId": 130009,
+      "areaName": "黄陂区"      
+    },
+    {
+      "areaId": 130010,
+      "areaName": "汉阳区"      
+    },
+    {
+      "areaId": 130011,
+      "areaName": "青山区"      
+    },
+    {
+      "areaId": 130012,
+      "areaName": "洪山区"      
+    },
+    {
+      "areaId": 130013,
+      "areaName": "汉南区"      
+    },
+    {
+      "areaId": 130014,
+      "areaName": "东西湖区"      
+    },
+    {
+      "areaId": 130015,
+      "areaName": " 东湖高新技术开发区"      
+    }
+  ]
+}

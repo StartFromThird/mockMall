@@ -1,0 +1,33 @@
+{
+  "id": 3500,
+  "areas": [
+    {
+      "areaId": 350001,
+      "areaName": "AA"
+    },
+    {
+      "areaId": 350002,
+      "areaName": "BBB"
+    },
+    {
+     "areaId": 350003,
+      "areaName": "CCC"
+    },
+    {
+      "areaId": 350004,
+      "areaName": "DDDD"
+    },
+    {
+     "areaId": 350005,
+      "areaName": "模拟"
+    },
+    {
+      "areaId": 350006,
+      "areaName": "区json"
+    },
+    {
+     "areaId": 350007,
+      "areaName": "default"
+    }
+  ]
+}

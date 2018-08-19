@@ -1,0 +1,37 @@
+{
+  "id": 1309,
+  "areas": [
+    {
+      "areaId": 130901,
+      "areaName": "沙市区"
+    },
+    {
+      "areaId": 130902,
+      "areaName": "荆州区"
+    },
+    {
+     "areaId": 130903,
+      "areaName": "江陵"
+    },
+    {
+      "areaId": 130904,
+      "areaName": "洪湖"
+    },
+    {
+     "areaId": 130905,
+      "areaName": "石首"
+    },
+    {
+      "areaId": 130906,
+      "areaName": "松滋"
+    },
+    {
+     "areaId": 130907,
+      "areaName": "监利"
+    },
+    {
+      "areaId": 130908,
+      "areaName": "公安"
+    }
+  ]
+}
