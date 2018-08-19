@@ -47,6 +47,27 @@ var get_goods_json = function(ctx) {
 } 
 app.use(route.get('/ajax/goods', get_goods_json));
 
+// 商品详情页 省市地址json
+// http://127.0.0.1:3001/ajax/city
+var get_city_json = function(ctx) {
+    ctx.response.body = service.get_city_data();    
+}
+app.use(route.get('/ajax/city', get_city_json));
+
+// 商品详情页 区地址json
+// http://127.0.0.1:3001/ajax/area?id=1309
+var get_area_json = function(ctx) {
+    ctx.set('Cache-Control', 'no-cache');
+    var params = querystring.parse(ctx.req._parsedUrl.query);
+    var id = params.id;
+    if(!id){
+        id = "";
+    }
+    ctx.body = service.get_area_data(id);
+}
+app.use(route.get('/ajax/area', get_area_json));
+
+
 // 静态文件目录
 // http://127.0.0.1:3001/js/common.js
 var path = require('path');

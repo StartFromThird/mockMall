@@ -15,15 +15,32 @@ exports.get_productBlock_data = function(){
     var content = fs.readFileSync('./mock/home/productBlock.json','utf-8');
     return content;
 }
-// 商品详情
+// 商品详情页  图片
 exports.get_goods_data = function(id){
     if(!id){
         id = "180817";
     }
     if(fs.existsSync('./mock/goods/' + id + '.json')){
-        return fs.readFileSync('./mock/goods/' + id + '.json', 'utf-8');
+        content = fs.readFileSync('./mock/goods/' + id + '.json', 'utf-8');
     }else{
-        return fs.readFileSync('./mock/goods/180807.json', 'utf-8');
+        content = fs.readFileSync('./mock/goods/180807.json', 'utf-8');
+    }
+    return content;
+}
+// 商品详情页  省市
+exports.get_city_data = function(){
+    var content = fs.readFileSync('./mock/address/city.json','utf-8');
+    return content;
+}
+// 商品详情页  区
+exports.get_area_data = function(id){
+    if(!id){
+        id = "3500";
+    }
+    if(fs.existsSync('./mock/address/' + id + '.json')){
+        content = fs.readFileSync('./mock/address/' + id + '.json', 'utf-8');
+    }else{
+        content = fs.readFileSync('./mock/address/3500.json', 'utf-8');
     }
     return content;
 }
