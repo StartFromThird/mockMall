@@ -6,11 +6,11 @@
  * date:2018/08/15
  * name:大图切换，局部高清展示
  */
- function GoodsDetailImg(config){
+function GoodsDetailImg(config){
     for(var i in config){
         this[i] = config[i];
     }
-
+    this.sum = 0;
     this.init();
 }
 GoodsDetailImg.prototype = {
@@ -19,14 +19,18 @@ GoodsDetailImg.prototype = {
         _this.getJson();
     },
     getJson: function(){
-        getAjax(APILIST.goodsImage, function(d){
-            // console.log(d);
+        var _this = this;
+        // 获取页面地址goodsId
+        var _id = getParam('id=');      
+        var goodsurl = APILIST.goodsImage + _id;
+        getAjax(goodsurl, function(d){
             var imgs = d.data[0].smallImg;
-            // 生成底部小图片DOM, 给底部x小图片绑定事件
+            // 生成底部小图片DOM, 给底部小图片及左右按钮绑定事件
+            var imgsNum = imgs.length;
             _this.createDom(imgs);
             _this.eventSmallImg();
-            eventLeft();
-            eventRight();
+            _this.eventLeft(imgsNum);
+            _this.eventRight(imgsNum);
 
             // 大图默认显示第一张
             var defaultBigUrl = imgs[0].imgUrl;
@@ -60,19 +64,30 @@ GoodsDetailImg.prototype = {
             // 切换对应详细图
             var datailId = _this.bigImgWrapId.children('img'); 
             $(datailId).attr('src',bigImgUrl);
+            // 点击选中 加上红色边框
+            $(this).addClass("red-border")
+                    .siblings(".red-border").removeClass("red-border");
         });
     },
     // 底部小图片栏目 左右按钮点击事件
-    eventLeft: function(){
+    eventLeft: function(n){
         var _this = this;
-        _this.leftBtnId.on('click',function(){
-
+        var n = n - 4;
+        _this.leftBtnId.on('click', function(){
+            if(_this.sum < n){
+                _this.sum++;                
+            _this.smallImgId.css('left',-(_this.sum*75));
+            }
         });
     },
-    eventRight: function(){
+    eventRight: function(n){
         var _this = this;
+        var n = n - 4;
         _this.rightBtnId.on('click',function(){
-
+            if (_this.sum > 0) {
+                _this.sum--;
+                _this.smallImgId.css('left',-(_this.sum*75));
+            }
         });
     },
 
@@ -153,4 +168,87 @@ var detailImgConfig = {
 }
  new GoodsDetailImg(detailImgConfig);
 
+ /******************************
+ * date:2018/08/18
+ * name:修改购买商品数量
+ */
+function GoodsNumFn(_config){
+    for(var i in _config){
+        this[i] = _config[i];
+    }
+    this.init();
+}
+GoodsNumFn.prototype = {
+    init: function(){
+        _this = this;
+        _this.btnPEvent();
+        _this.btnMEvent();
+    },
+    // 加号 plus
+    btnPEvent: function(){
+        var _this = this;
+        _this.input_btnP.on('click', function(){
+            _this.inputVal++;
+            _this.input_btnNum.val(_this.inputVal);
+        });
+    },
+    // 减号 minus
+    btnMEvent: function(){
+        var _this = this;
+        _this.input_btnM.on('click', function(){
+            if(_this.inputVal > 1){
+                _this.inputVal--;
+                _this.input_btnNum.val(_this.inputVal); 
+            }
+        });
+    },  
+}
+var _GoodsNumFnConfig = {
+    input_btnNum : $('#input_btnNum'),
+    input_btnP : $('#input_btnP'),
+    input_btnM : $('#input_btnM'),
+    inputVal : 1
+}
+new GoodsNumFn( _GoodsNumFnConfig );
+
+ /******************************
+ * date:2018/08/19
+ * name:右侧顶部商品详细信息
+ */
+function GoodsDetailTxt(config){
+    for(var i in config){
+        this[i] = config[i];
+    }
+    this.init();
+}
+GoodsDetailTxt.prototype = {
+    init: function(){
+        var _this = this;
+        _this.getJson();
+    },
+    getJson: function(){
+        var _this = this;
+        var goodsurl = APILIST.goodsImage + getParam('id=');
+        getAjax(goodsurl, function(d){
+            _this.createDom(d.data[0]);
+        });
+    },
+    createDom: function(d){
+        var _this = this;
+        $(`<h1>${d.describe}</h1>
+            <p>促销价 <span>￥${d.price}</span></p>
+            `).appendTo( _this.goodsInfoId );   
+
+    }
+}
+var detailTxtConfig = {
+    goodsInfoId : $('#goodsInfoId')
+}
+new GoodsDetailTxt(detailTxtConfig);
  
+
+
+
+
+
+
