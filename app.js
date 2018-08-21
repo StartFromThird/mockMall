@@ -67,6 +67,19 @@ var get_area_json = function(ctx) {
 }
 app.use(route.get('/ajax/area', get_area_json));
 
+// 购物车页面 用户商品信息json
+// http://127.0.0.1:3001/ajax/shopCar?user-id=101010
+var get_userShopCar_json = function(ctx) {
+    ctx.set('Cache-Control', 'no-cache');
+    var params = querystring.parse(ctx.req._parsedUrl.query);
+    var userId = params['user-id'];
+    if(!userId){
+        userId = "";
+    }
+    console.log(userId);
+    ctx.body = service.get_userShopCar_data(userId);
+}
+app.use(route.get('/ajax/shopCar', get_userShopCar_json));
 
 // 静态文件目录
 // http://127.0.0.1:3001/js/common.js

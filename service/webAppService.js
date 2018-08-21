@@ -44,6 +44,19 @@ exports.get_area_data = function(id){
     }
     return content;
 }
+
+// 用户购物车
+exports.get_userShopCar_data = function(id){
+    if(!id){
+        id = "200000";
+    }
+    if(fs.existsSync('./mock/shopCar/userGoods' + id + '.json')){
+        content = fs.readFileSync('./mock/shopCar/userGoods' + id + '.json', 'utf-8');
+    }else{
+        content = fs.readFileSync('./mock/shopCar/userGoods200000.json', 'utf-8');
+    }
+    return content;
+}
 // 实际接口
 // exports.get_search_data = function(start, end, keyword){
 //     // 异步 接受数据后调用

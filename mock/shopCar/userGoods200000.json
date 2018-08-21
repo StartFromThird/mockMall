@@ -1,0 +1,44 @@
+{
+  "data": [
+    {
+      "name": "默认商品A",
+      "introduce": "这是介绍商品A的文字,这是介绍商品A的文字这是介绍商品A的文字",
+      "unit": "A",
+      "num": 1,
+      "goodsimg": "http://dummyimage.com/728x90",
+      "price": 2000.00
+    },
+    {
+      "name": "默认商品B",
+      "introduce": "这是介绍商品B的文字,这是介绍商品B的文字这是介绍商品B的文字",
+      "unit": "B",
+      "num": 2,
+      "goodsimg": "http://dummyimage.com/336x280",
+      "price": 10.00
+    },
+    {
+      "name": "默认商品C",
+      "introduce": "这是介绍商品C的文字,这是介绍商品C的文字这是介绍商品C的文字",
+      "unit": "C",
+      "num": 3,
+      "goodsimg": "http://dummyimage.com/336x280",
+      "price": 1.00
+    },
+    {
+      "name": "默认商品D",
+      "introduce": "这是介绍商品D的文字,这是介绍商品D的文字这是介绍商品D的文字",
+      "unit": "D",
+      "num": 4,
+      "goodsimg": "https://dummyimage.com/336x280",
+      "price": 9.99
+    },
+    {
+      "name": "默认商品E",
+      "introduce": "这是介绍商品E的文字,这是介绍商品E的文字这是介绍商品E的文字",
+      "unit": "E",
+      "num": 5,
+      "goodsimg": "https://dummyimage.com/234x60",
+      "price": 18
+    }
+  ]
+}
