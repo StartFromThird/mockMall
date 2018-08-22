@@ -110,10 +110,13 @@ SlideWrapFn.prototype = {
 		var imagesId = _this.imageDivId;
 		var dotId    = _this.iconListId;
 		_this.ulDom(imagesId, dotId);
-
+		// 左右按钮及底部小圆点，切换轮播图显示图片
 		_this.leftBtn();
 		_this.rightBtn();
 		_this.dotBtn();
+		// 自动滑动效果及聚焦停止滑动
+		_this.autoSlide();
+		_this.imageDivIdEvent();
 
 	},
 
@@ -221,6 +224,32 @@ SlideWrapFn.prototype = {
 
 	}
 
+	// 图片组 自动滑动
+	autoSlide: function(){
+		var _this = this;
+		// !!
+		_this.timer = setInterval(function(){
+			_this.toLeftBtnId.click();
+		},2000);
+	},
+	// 停止滑动
+	pauseSlide: function(){
+		clearInterval(this.timer);
+	},
+	// 图片栏事件
+	imageDivIdEvent: function(){
+		var _this = this;
+		var wrap = _this.slideWrapId;
+		wrap.on('mouseover', function(){
+			// console.log("pause");
+			_this.pauseSlide();
+		});
+		wrap.on('mouseout', function(){
+			// console.log("slide");
+			_this.autoSlide();
+		});
+
+	}
 	
 }
 

@@ -11,6 +11,7 @@ $(function(){
 
 	// 首页的轮播图
 	var _slideIdConfig = {
+		slideWrapId : $('#slideWrapId'),
 		imageDivId : $('#imageDivId'),
 		iconListId : $('#iconListId'),
 		slidePointBgId : $('#slidePointBgId'),
