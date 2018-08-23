@@ -26,7 +26,12 @@ ShopCarFn.prototype = {
             _this.checkboxGoodsEvent();
             // 全选 ckeckbox
             _this.checkboxAllEvent();
-
+            // 修改某种商品数量
+            _this.addBtnEvent();
+            _this.minusBtnEvent();
+            _this.numInputEvent();
+            // 删除某种商品
+            _this.delectBtnEvent();
         })
 
     },
@@ -101,8 +106,97 @@ ShopCarFn.prototype = {
             }            
         });
 
-    }
+    },
 
+    // 更改某种商品数量
+    // 减号按钮 点击事件 商品数-1
+    minusBtnEvent: function(){
+        _this = this;
+        var minusBtn = _this.cartWrapId.find('input.minusNumBtn');
+
+        minusBtn.on('click', function(){
+            var id = $(this).parents('.goodsItem').attr('index');
+            var item = $(this).parents('.goodsItem').children('.chkBtn');
+            // 取出原有的商品数量和单价
+            var num = item.attr('data-goodsNum');
+            var price = item.attr('data-price');
+            // 更新输入框显示数字 和 记录数量
+            if(num > 1){
+                num--;
+            }else{
+                num =1;
+            }
+            $(this).next().val(num);
+            item.attr('data-goodsNum', num);
+            // 更新某种商品小计价格
+            _this.updateTotalPrice(num, price, $(this));
+
+        });
+
+    },
+    // 加号按钮 点击事件 商品数+1
+    addBtnEvent: function(){
+        _this = this;
+        var addBtn = _this.cartWrapId.find('input.addNumBtn');
+
+        addBtn.on('click', function(){
+            var item = $(this).parents('.goodsItem').children('.chkBtn');
+            // 取出原有的商品数量和单价
+            var num = item.attr('data-goodsNum');
+            var price = item.attr('data-price');
+
+            num++;
+            // 更新商品输入框
+            $(this).prev().val(num);
+            // 更新 记录数量
+            item.attr('data-goodsNum', num);
+            // 更新某种商品小计价格
+            _this.updateTotalPrice(num, price, $(this));
+
+        });
+    },
+    // 输入框 失焦事件 商品数直接写入
+    numInputEvent: function(){
+        _this = this;
+        var enterBtn = _this.cartWrapId.find('input.enterNumInput');
+        // 失焦时 更新数量
+        enterBtn.on('blur', function(){
+            var item = $(this).parents('.goodsItem').children('.chkBtn');
+            var num = $(this).val();
+            var price = item.attr('data-price');
+
+            // 保证数量最小是1，且为整数
+            if(num < 1){
+                num = 1;
+            }else{
+                num = parseInt(num);                
+            }
+            $(this).val(num);
+            item.attr('data-goodsNum', num);
+            // 更新某种商品小计价格
+            _this.updateTotalPrice(num, price, $(this));
+        });
+    },
+
+    // 更新某种商品小计价格
+    updateTotalPrice: function(num, price, goods){
+        var totalPrice = goods.parents('.goodsItem').find('p.totalPrice');
+        var sum = (num * price).toFixed(2);
+        totalPrice.html(sum);
+    },
+
+    // 删除某种商品
+    delectBtnEvent: function(){
+        var _this = this;
+        var delBtn = _this.cartWrapId.find('p.delBtn');
+        delBtn.on('click', function(){
+            var item = $(this).parent();
+            // 先删除前后的 再删cartWrap 
+            item.prev().remove();
+            item.remove();
+        
+        });
+    }
 
 }
  var shopCarConfig = {
