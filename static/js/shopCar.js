@@ -32,6 +32,8 @@ ShopCarFn.prototype = {
             _this.numInputEvent();
             // 删除某种商品
             _this.delectBtnEvent();
+            // 更新商品总数及总价格
+            _this.updateSum();
         })
 
     },
@@ -44,8 +46,9 @@ ShopCarFn.prototype = {
             $(`
             <div class="border2px"></div>
             <div class="goodsItem">
-                <input data-price=${d[i].price} data-goodsNum=${d[i].num} type="checkbox" checked class="chkBtn">
-                <label for="">
+                
+                    <input id="item${i}Checkbox" data-price=${d[i].price} data-goodsNum=${d[i].num} type="checkbox" checked class="chkBtn">
+                <label for="item${i}Checkbox">
                     <img src="${d[i].goodsimg}" alt="${d[i].name}">
                 </label>
 
@@ -73,18 +76,26 @@ ShopCarFn.prototype = {
         var checkAllBtn = $('.checkAllBtn');
 
         chkBtn.on('click', function(){
-            var isChecked = $(this).is('.isChkBtn');
-
+            var isChecked = $(this).is('.noChkBtn');
             if(isChecked){
                 // 选中
-                $(this).removeClass('isChkBtn');
-                // console.log("T")
+
+                $(this).removeClass('noChkBtn');
+                // 判断是否商品全部选中 是否勾选 全选checkbox
+                var checked = _this.cartWrapId.find('input:checked.chkBtn').length;
+                var check = _this.cartWrapId.find('input.chkBtn').length;
+                if(checked == check){
+                    checkAllBtn.attr('checked', 'true');    
+                }
 
             }else{
                 // 取消选中 全选打勾去掉
-                $(this).addClass('isChkBtn');
+                $(this).addClass('noChkBtn');
                 checkAllBtn.removeAttr('checked');
             }
+            // 更新全部商品总价格
+            _this.updateSum();
+
         });
     },
     // 全选按钮 checkbox 点击事件 
@@ -98,12 +109,16 @@ ShopCarFn.prototype = {
             if(isAll){
                 // 选中
                 chkBtn.attr('checked', 'true');
+                chkBtn.removeClass('noChkBtn');
                 checkAllBtn.attr('checked', 'true');
             }else{
                 // 取消全选
                 chkBtn.removeAttr('checked');
+                chkBtn.addClass('noChkBtn');
                 checkAllBtn.removeAttr('checked');
-            }            
+            } 
+            // 更新全部商品总价格
+            _this.updateSum();           
         });
 
     },
@@ -128,9 +143,9 @@ ShopCarFn.prototype = {
             }
             $(this).next().val(num);
             item.attr('data-goodsNum', num);
-            // 更新某种商品小计价格
+            // 更新某种商品小计价格，全部商品总价格 总数量
             _this.updateTotalPrice(num, price, $(this));
-
+            _this.updateSum();
         });
 
     },
@@ -150,8 +165,10 @@ ShopCarFn.prototype = {
             $(this).prev().val(num);
             // 更新 记录数量
             item.attr('data-goodsNum', num);
-            // 更新某种商品小计价格
+
+            // 更新某种商品小计价格，全部商品总价格 总数量
             _this.updateTotalPrice(num, price, $(this));
+            _this.updateSum();
 
         });
     },
@@ -173,8 +190,9 @@ ShopCarFn.prototype = {
             }
             $(this).val(num);
             item.attr('data-goodsNum', num);
-            // 更新某种商品小计价格
+            // 更新某种商品小计价格，全部商品总价格 总数量
             _this.updateTotalPrice(num, price, $(this));
+            _this.updateSum();
         });
     },
 
@@ -194,8 +212,35 @@ ShopCarFn.prototype = {
             // 先删除前后的 再删cartWrap 
             item.prev().remove();
             item.remove();
+            // 更新选中商品总数量，总价格
+            _this.updateSum();
         
         });
+    },
+
+    // 更新选中商品总数量，总价格
+    updateSum: function(){
+        _this = this;
+        var _num = 0;
+        var _sum = 0;
+
+        // 选中的checkbox
+        var checked = _this.cartWrapId.find('input:checked.chkBtn');
+        var len = checked.length;
+        // 算已选商品的总价及数量 
+        for(var i=0; i<len; i++){
+            var item = checked.eq(i);
+            var n = parseInt(item.attr('data-goodsNum'));
+            var s = item.attr('data-price') * n;
+            _num += n;
+            _sum = _sum + s;
+        }      
+        _sum = _sum.toFixed(2);
+
+        _this.topTotalGoods.html(_num);
+        _this.selectGoodsNumId.html(_num);
+        _this.goodsTotalMoneyId.html(_sum);
+    
     }
 
 }

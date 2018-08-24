@@ -101,6 +101,7 @@ function SlideWrapFn( _slideIdConfig ){
 	this.tempI 	 = 0;
 	this.liWidth = 0;
 	this.imgNum  = slideImgUrl.urls.length;
+	this.timer = null;
 	
 	this.init();
 }
