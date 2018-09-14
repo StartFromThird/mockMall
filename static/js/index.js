@@ -11,19 +11,19 @@ function SearchFn(n){
 	this.init();
 }
 SearchFn.prototype = {
-	init:function(){
+	init: function(){
 		var _this = this;
 		var _sId  = _this.searchId;
 
 		_this.focusFn( _sId );
 		_this.blurFn( _sId );
 	},
-	focusFn:function(n){
+	focusFn: function(n){
 		n.on('focus',function(){
 			$(this).val('');
 		});
 	},
-	blurFn:function(n){
+	blurFn: function(n){
 		n.on('blur',function(){
 			$(this).val('818 惊喜购');
 		});
@@ -40,25 +40,25 @@ function SubNavFn(n){
 	this.init();
 }
 SubNavFn.prototype = {
-	init:function(){
+	init: function(){
 		var _this = this;
 		_this.getJson();
 	},
 
-	getJson:function(){
+	getJson: function(){
         var _this = this;
 		getAjax(APILIST.subNavApi, function(d){
 			// console.log("testMock", d);
 			_this.createDom(d.productList);
 		});
 	},
-	createDom:function(nav){
+	createDom: function(nav){
 		var _this = this;
 		// console.log(nav);
 		var typeLen = nav.length;
 		for( let i=0; i<typeLen; i++){
 			var subLen = nav[i].products.length;
-			console.log(subLen);
+			// console.log(subLen);
 			$(`<li>
 				<a href="#">${nav[i].type}</a>
 				<div class="showNavPopup"></div>
@@ -75,13 +75,13 @@ SubNavFn.prototype = {
 	},
 
 	// 次级导航的消失和隐藏
-	mouseOverFn:function(allNav){
+	mouseOverFn: function(allNav){
 		allNav.on('mouseover', function(){
 			$(this).find('div').show();
 		});
 		
 	},
-	mouseOutFn:function(allNav){
+	mouseOutFn: function(allNav){
 		allNav.on('mouseout', function(){
 			$(this).find('div').hide();
 		});
@@ -111,13 +111,15 @@ SlideWrapFn.prototype = {
 		var imagesId = _this.imageDivId;
 		var dotId    = _this.iconListId;
 		_this.ulDom(imagesId, dotId);
-		// 左右按钮及底部小圆点，切换轮播图显示图片
+
 		_this.leftBtn();
 		_this.rightBtn();
 		_this.dotBtn();
-		// 自动滑动效果及聚焦停止滑动
+
 		_this.autoSlide();
 		_this.imageDivIdEvent();
+
+		// _this.pauseSlide(imagesId);
 
 	},
 
@@ -191,7 +193,7 @@ SlideWrapFn.prototype = {
 			}else{
 				_this.tempI = _this.imgNum - 1;
 			}
-			// console.log(_this.tempI);
+			console.log(_this.tempI);
 			_this.switchToI(_this.tempI);
 		});
 	},
@@ -223,7 +225,7 @@ SlideWrapFn.prototype = {
 		dots.removeClass('redD')
 			.eq(i).addClass('redD');
 
-	}
+	},
 
 	// 图片组 自动滑动
 	autoSlide: function(){
@@ -250,12 +252,11 @@ SlideWrapFn.prototype = {
 			_this.autoSlide();
 		});
 
-	}
-	
+	}	
 }
 
 /******************************
- * date:2018/08/12
+ * date:2018/08/10
  * name:首页的享品质
  */
 function ProductBlock(n){
@@ -285,11 +286,39 @@ ProductBlock.prototype={
 				<img src="${_pb[i].productImg}" />
 			</a>`)
 			.attr({
-				// http://127.0.0.1:3001/ajax/goods?id=180807
-				'href': `${SITEURL}/goods?id=${_pb[i].id}`,
-				'tarfet': '_blank'
+				// http://127.0.0.1:3001/goodsDetail?id=180807
+				'href': `${TEMPURL.hrefs}/goodsDetail?id=${_pb[i].id}`
 			})
 			.appendTo(_this.productId);
+
+			// $('<a/>',{'class':'producetItem'})
+			// .html(function(){
+			// 	var _this = $(this);
+			// 	$('<dl/>',{'class':'bg_'+ (i+1)})
+			// 		.html(function(){
+			// 			var _this=$(this);
+			// 			$('<dt/>',{})
+			// 				.html(_pb[i].name)
+			// 				.appendTo(_this);
+			// 			$('<dd/>',{})
+			// 				.html(_pb[i].describe)
+			// 				.appendTo(_this);
+			// 		})
+			// 		.appendTo(_this);//to div
+			// 	$('<img/>',{'style':'width:375px;height:1 70px;'})
+			// 		.attr('src',_pb[i].productImg)
+			// 		.appendTo(_this);
+			// })
+			// .attr({
+			// 	'data-pid':_pb[i].pid,
+			// 	'data-price':_pb[i].price,
+			// 	'target':'_blank',
+   //              // 'href':TEMPURL.hrefs+'?pidVal='+_pb[i].pid
+   //              //商品详情跳转链接，TEMPURL是商品详情主地址
+			// })
+			// .appendTo(_this.productId);
+
+
 
 		}
 	}
