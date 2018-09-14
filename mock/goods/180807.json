@@ -1,0 +1,33 @@
+{
+  "error": 0,
+  "data": [
+    {
+      "id": "180807",
+      "name": "景田矿泉水",
+      "describe": "百岁山 矿泉水 饮用水 瓶装水 景田 348ml*24瓶 整箱装",
+      "price": "38.40",
+      "smallImg": [
+        {
+          "imgUrl": "https://img10.360buyimg.com/n1/jfs/t4636/248/4059769692/194744/354936c6/5909ae53N369e8ef4.jpg",
+          "bigImg": "https://img14.360buyimg.com/n0/jfs/t4636/248/4059769692/194744/354936c6/5909ae53N369e8ef4.jpg"
+        },
+        {
+          "imgUrl": "https://img10.360buyimg.com/n5/jfs/t5185/189/962028124/223303/a25dc85d/5909ae57N33e1fa86.jpg",
+          "bigImg": "https://img14.360buyimg.com/n0/jfs/t5185/189/962028124/223303/a25dc85d/5909ae57N33e1fa86.jpg"
+        },
+        {
+          "imgUrl": "https://img10.360buyimg.com/n5/jfs/t5272/229/968826000/214197/58a0892c/5909ae5bNef94e48e.jpg",
+          "bigImg": "https://img14.360buyimg.com/n0/jfs/t5272/229/968826000/214197/58a0892c/5909ae5bNef94e48e.jpg"
+        },
+        {
+          "imgUrl": "https://img10.360buyimg.com/n5/jfs/t5113/216/981562319/82093/a9415674/5909ae5eN2758d53e.jpg",
+          "bigImg": "https://img14.360buyimg.com/n0/jfs/t5113/216/981562319/82093/a9415674/5909ae5eN2758d53e.jpg"
+        },
+        {
+          "imgUrl": "https://img10.360buyimg.com/n5/jfs/t5443/11/997224366/68896/4404e93e/5909ae9aNcaf50a22.jpg",
+          "bigImg": "https://img14.360buyimg.com/n0/jfs/t5443/11/997224366/68896/4404e93e/5909ae9aNcaf50a22.jpg"
+        }
+      ]
+    }
+  ]
+}

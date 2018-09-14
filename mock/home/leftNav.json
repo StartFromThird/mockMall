@@ -266,27 +266,6 @@
         "url": "cillum culpa"
       }
     ]
-  },
-  {
-    "type": "美妆",
-    "products": [
-      {
-        "name": "防晒",
-        "url": "mollit nisi"
-      },
-      {
-        "name": "保湿",
-        "url": "deserunt quis consectetur cupidatat"
-      },
-      {
-        "name": "精华",
-        "url": "exercitation nostrud ut"
-      },
-      {
-        "name": "卸妆",
-        "url": "deserunt quis consectetur cupidatat"
-      }
-    ]
   }
 
 ]
