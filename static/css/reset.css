@@ -1,0 +1,22 @@
+/******************************
+ * date:2018/08/13
+ * name:所有html标签的重置
+ */
+
+body,html{
+    margin: 0;
+    padding: 0;
+}
+ul, ol,li{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+div,dl,dt,dd,p,h1,h2,h3,h4,h5,h6,input,i,b{
+	margin: 0;
+    padding: 0;
+    border: 0;
+    font-style: normal;
+	font-family: "微软雅黑","Microsoft YaHei";
+	font-weight: normal;
+}

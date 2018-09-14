@@ -1,0 +1,41 @@
+/******************************
+ * date:2018/08/13
+ * name:整个项目的布局的css
+ */
+
+ /* 首页 */
+ /* 网页头 */
+.wrap{
+	width: 1183px;
+    height: 160px;
+	margin: 10px auto;
+	position: relative;
+    border:1px solid #bbbbbb;
+    background: #F6F6F6;
+}
+
+/* 网页主体 */
+.mainWrap{
+	width: 1183px;
+    background: #F6F6F6;
+    margin: 0 auto;
+    border: 1px solid #bbbbbb;
+}
+
+/* 产品详情页 */
+.goodsWrap{
+	width: 1183px;
+    height: 595px;
+    margin: 10 auto;
+}
+/* 左边 */
+.wrapLeft{
+	width: 505px;
+    float: left;
+}
+/* 右边 */
+.wrapRight{
+	width: 658px;
+    float: right;
+    padding-left: 20px;
+}

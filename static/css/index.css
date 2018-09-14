@@ -1,0 +1,329 @@
+/******************************
+ * date:2018/08/12
+ * name:电商项目首页的header头;
+ */
+
+/* 网页头 logo */
+.logo{
+	width: 185px;
+	height: 160px;
+	float: left;
+}
+
+/* 我的购物车按钮 */
+.btn{
+	/*float: right;*/
+	position: absolute;
+	left: 897px;
+	top: 50px;
+	width:188px;
+	height: 33px;
+	border: 1px solid #E3E4E5;
+	background-color: #fff;
+	background-image: url('../images/icon/icon_1.jpg');
+	background-repeat: no-repeat;
+	background-position: 38px center;
+	color: #f00;
+	font-size: 12px;
+	/*margin:24px 98px 0 0;*/
+}
+
+/* head头，顶部导航 */
+.navTopMenu{
+	width: 998px;
+	height: 25px;
+	float: right;
+	background: #E3E4E5;
+	border-bottom: 1px solid #DDDDDD;
+}
+.navTopMenu label{
+	float: left;
+	margin: 0 0 0 20px;
+	color: #999999;
+	font-size: 12px;
+	padding-left: 17px;
+	background: url('../images/icon/icon_3.jpg') no-repeat left center;
+}
+.navTopMenu ul{
+	float: right;
+	display: block;
+	margin-top: 3px;
+}
+.navTopMenu li{
+	float: left;
+	padding:0 12px;
+	font-size: 12px;
+	color: #3A3A3A;
+	border-right: 1px solid #CCCCCC;
+}
+.navTopMenu li.redFont{
+	color: #f00;
+}
+
+/* 搜索框 */
+.inputStyle_1{
+	float: left;
+	width:494px;
+	height: 31px;
+	background: #fff;
+	border: 1px solid #ff0000;
+	color: #989898;
+	padding-left: 4px;
+	outline:none;
+}
+.inputStyle_2{
+	float: left;
+	width: 50px;
+	height: 33px;
+	border: 0;
+	outline:none;
+	background-color: #f00;
+	background-image: url('../images/icon/icon_2.jpg');
+	background-repeat: no-repeat;
+	background-position: center;
+	cursor: pointer; /* 设置鼠标光标的样式 */
+}
+.inputDiv{
+	position: absolute;
+	left: 314px;
+	top: 50px;
+}
+
+/* header，底部导航 */
+.navBottomMenu{
+	position: absolute;
+	left: 225px;
+	bottom: 7px;
+}
+.navBottomMenu li{
+	float: left;
+	padding:0 20px;
+	color: #555555;
+	font-weight: bold;
+	position: relative;
+}
+
+.hot{
+	position: absolute;
+	right: -10px;
+	top: -15px;
+	width:30px;
+	height: 19px;
+	background: url('../images/icon/icon_4.jpg') no-repeat;
+}
+
+/* 网页主体部分 */
+/* 产品导航条-弹出菜单 */
+.showNavPopup{
+	position: absolute;
+	top: 0;
+	right: -220px;
+	width: 220px;
+	background: #fff;
+	color: #000;
+	z-index: 10;
+	display: none;
+}
+.subNavProduct{
+	width: 185px;
+	height: 444px;
+	float: left;
+	background: #6E6568;
+}
+.subNavProduct ul{
+	margin: 25px 0 0 0;
+	display: block;
+}
+.subNavProduct ul li{
+	position: relative;
+	color: #fff;
+	font-size: 20px;
+	padding: 5px 12px;
+}
+/*.subNavProduct ul li:hover .showNavPopup{
+	display: block;
+}*/
+.subNavProduct ul li:hover{
+	background: #959595;
+	color: #000;
+}
+.subNavProduct ul li a{
+	display: block;
+	color: #fff;
+	text-decoration: none;
+}
+.subNavProduct ul li a:hover{
+	color: #f00;
+	text-decoration: underline;
+}
+.subNavProduct ul li>div>p{
+	font-size: 20px;
+	padding: 5px 12px;
+	cursor: pointer;
+}
+/*  */
+.mainRight{
+	float: right;
+	width: 986px;
+	height: 480px;
+}
+/* 轮播广告 start */
+.slideWrap{
+	width: 986px;
+	height: 444px;
+	overflow: hidden;
+	position: relative;
+}
+.slideWrap ul{
+	width: 3944px;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+.slideWrap ul li{
+	width: 986px;
+	float: left;
+	overflow: hidden;
+}
+.slideWrap ul li img{
+	width:986px;
+	height: 444px;
+}
+
+/* 轮播图左右按钮 */
+.slideWrap span{
+	position: absolute;
+	top: 50%;
+	margin-top: -30px;
+	width: 40px;
+	height: 60px;
+	background: #000;
+	color: #fff;
+	font-size: 26px;
+	text-align: center;
+	line-height: 60px;
+	z-index: 9;
+	opacity: 0.7;
+	cursor: pointer;
+	transition: opacity 1s;
+}
+.slideWrap span:hover{
+	opacity: 0.3;
+}
+/* 轮播广告 end */
+
+.advDiv{
+	width: 487px;
+	height: 130px;
+	background: #E1A767;
+}
+
+/* 轮播图小白点 */
+.slidePoint{
+	position: absolute;
+	bottom:10px;
+	left: 50%;
+	height: 30px;
+	padding: 0 6px;
+	z-index: 2;
+	border-radius: 10px;
+}
+.slidePoint p{
+	float: left;
+	width:16px;
+	height: 16px;
+	background: #fff;
+	margin:7px 6px;
+	border-radius:100%;
+	transition:background 0.3s;
+}
+.slidePoint p:hover{
+	background: #f00;
+	cursor: pointer;
+}
+.slidePoint p.redD{
+	background: #f00;
+}
+.slidePointBg{
+	background: #eee;
+	opacity: 0.3;
+	z-index: 1;
+}
+
+/* 享品质 */
+.productTitle{
+	width:1183px;
+	height: 50px;
+	margin:0 auto;
+	background-color: #F6F6F6;
+	background-image: url('../images/icon/icon_5.jpg');
+	background-repeat: repeat-x;
+	background-position: left center;
+	overflow: hidden;text-align: center;
+	line-height: 50px;
+}
+.productTitle p{
+	display: inline;
+	padding:10px 57px;
+	font-size: 30px;
+	background: #F6F6F6;
+}
+
+/* 享品质 list */
+.productContent{
+	width:1166px;
+	height: 170px;
+	margin:0 auto;
+	padding-left: 18px;
+	background: #F6F6F6;
+}
+
+.producetItem{
+	position: relative;
+	overflow: hidden;
+	float: left;
+	width:375px;
+	height: 170px;
+	margin-right: 10px;
+}
+.producetItem dl{
+	position: absolute;
+	left: 0;
+	top: 0;
+	width:135px;
+	height: 170px;
+	z-index: 5;
+}
+.producetItem dl.bg_1{
+	background: #D78E28;
+}
+.producetItem dl.bg_2{
+	background: #498C94;
+}
+.producetItem dl.bg_3{
+	background: #5C5566;
+}
+.producetItem dl dt{
+	width:100px;
+	height: 40px;
+	margin:45px auto 11px auto;
+	border-top: 2px solid #fff;
+	border-bottom: 2px solid #fff;
+	font-size: 20px;
+	line-height: 40px;
+	text-align: center;
+	color: #fff;
+}
+.producetItem dl dd{
+	width:100px;
+	margin:0 auto;
+	font-size: 16px;
+	color: #fff;
+}
+.producetItem img{
+	position: absolute;
+	right: 0;
+	cursor: pointer;
+	height: 170px;
+	/*width: 375px;*/
+}
