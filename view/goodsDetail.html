@@ -1,0 +1,91 @@
+<html>
+	<head>
+		<title>电商项目 -- 商品详情页</title>
+		<meta charset='utf-8'/>
+		<link rel="stylesheet" type="text/css" href="css/reset.css" />
+		<link rel="stylesheet" type="text/css" href="css/common.css" />
+		<link rel="stylesheet" type="text/css" href="css/layout.css" />
+		<link rel="stylesheet" type="text/css" href="css/goodsDetail.css" />
+	</head>
+	<body>
+	<div class="goodsWrap">
+		<!-- 左边 -->
+		<div class="wrapLeft">
+			<div class="goodsBigImg" id="goodsBigImg">
+				<div id="bigImgMask"></div>
+				<img id="bigImgId"  alt="图片加载中" />
+				<i></i>
+				<!-- 大图局部 -->
+				<div class="bigImgWrap" id="bigImgWrapId">
+					<img />
+				</div>
+			</div>
+			<div class="smallImgList">
+				<label id="leftBtnId" class="sty1"></label>
+				<div class="ulWrap">
+					<ul id="smallImgId">
+						<!-- <li><img src="" alt="图1"></li>
+						<li>图2</li>
+						<li>图3</li>
+						<li>图4</li> -->
+					</ul>					
+				</div>
+				<span id="rightBtnId" class="sty2"></span>
+			</div>
+		</div>
+
+		<!-- 右边 -->
+		<div class="wrapRight">
+			<div class="goodsInfo" id="goodsInfoId">
+			<!--	<h1>联想(Lenovo)拯救者R720 15.6英寸游戏笔记本电脑(i5-7300HQ 8G 1T+128G SSD GTX1050Ti 4G黑)</h1>
+				<p>游戏笔记本电脑(i5-7300HQ 8G 1</p>-->
+			</div>
+
+			<!-- 配送 title -->
+			<div class="sendGoodsAddress">
+				<label>配送至</label>
+				<div class="addressTitle" id="addressTitleId">
+			  	<!--<p>XXX</p>-->
+					<p id="addressDivId">请选择配送地址</p>
+					<i></i>
+				</div>
+			</div>
+
+			<!-- 配送城市列表 start -->
+			<div class="addressList" id="addressListId">
+				<p id="testId">选择新地址</p>
+				<ul>
+					<li id='tabA' class="yellow">省</li>
+					<li id='tabB' style="display:none;">市</li>
+					<li id='tabC' style="display:none;">区</li>
+				</ul>
+				<div class="nameItemList" id="provinceId">
+				<!--	<p>XX区</p>-->
+				</div>
+				<div class="nameItemList" id="cityId" style="display:none;"></div>
+				<div class="nameItemList" id="areaId" style="display:none;"></div>						
+			</div>
+			<!-- 配送城市列表 end -->
+			<!-- 加入购物车按钮 -->
+			<div class="toShopingCar">
+				<div class="inputWrap">
+					<input id="input_btnNum" class="input_Num" tyep='text' value=1 />
+					<input id="input_btnP" class="input_P" type='button' value="+" />
+					<input id="input_btnM" class="input_M" type='button' value="-" />
+				</div>
+				<!--<input class="toShopingCarBtn" type='button' value="加入购物车" />-->
+				<a href="shopCar+.html" class="toShopingCarBtn">加入购物车</a>
+				<!-- <a href="shopCar+.html" class="toShopingCarBtn" type='button' value="加入购物车" /> -->
+			</div>
+		</div>
+	</div>
+<br/>
+<br/>
+<script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="js/config.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+<script type="text/javascript" src="js/goodsDetail.js"></script>
+<script type="text/javascript" src="js/addressMenu.js"></script>
+
+	</body>
+</html>
