@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>电商项目 -- 购物车</title>
+		<meta charset='utf-8'/>
+		<link rel="stylesheet" type="text/css" href="css/reset.css" />
+		<link rel="stylesheet" type="text/css" href="css/common.css" />
+		<link rel="stylesheet" type="text/css" href="css/shopCar.css" />
+	</head>
+	<body>
+		<div class="allGoodsNumTop">
+			<p>全部商品</p>
+			<i id="topTotalGoods"></i>
+		</div>
+		<!-- 头 -->
+		<div class="carTitile">
+			<input type="checkbox" class="checkAllBtn" checked />
+			<label>全选</label>
+			<p class="p1">商品</p>
+			<p class="p2">单价</p>
+			<p class="p3">数量</p>
+			<p class="p4">小计</p>
+			<p class="p5">操作</p>
+		</div>
+		<!-- 商品列表 -->
+		<div class="cartWrap" id="cartWrapId">
+<!--             <div class="border2px"></div>
+            <div class="goodsItem">
+                <input data-unit=${d[i].unit} data-goodsNum=${d[i].num} type="checkbox" checked class="chkBtn" id="goodsItemCheckbox">
+                <label for="goodsItemCheckbox">
+                    <img src="${d[i].goodsimg}" alt="${d[i].name}">
+                </label>
+
+                <span>${d[i].name}</span>
+                <p class="p1">${d[i].introduce}</p>
+                <p class="p2">￥${d[i].price}</p>
+
+                <div class="goodsNumInput">
+                    <input type="button" value="-" class="a minusNumBtn" />
+                    <input type="text" value=${d[i].num} class="b enterNumInput" />
+                    <input type="button" value="+" class="c addNumBtn" />
+                </div>
+
+                <p class="p3 totalPrice">￥${totalPrice}</p>
+                <p class="p4 delBtn">删除</p>
+            </div> -->
+		</div>
+		<!-- 尾 -->
+
+		<div class="footerWrap">
+			<input class="cbxBtn checkAllBtn" checked type="checkbox" />
+			<label>全选</label>
+			<p class="p1">删除选中的商品</p>
+
+			<p class="p2">已选择<i style="color:#f00;" id="selectGoodsNumId">4</i>件商品</p>
+			<div class="allGoodsPrice">总价：<i id="goodsTotalMoneyId">￥2575.33</i></div>
+			<!-- <div class="saveMoney">已节省：-￥102.00</div> -->
+			<input class="toPay" type="button" value="去结算" />
+		</div>
+
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+	</body>
+</html>
+
+<script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="js/config.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+<script type="text/javascript" src="js/shopCar.js"></script>
