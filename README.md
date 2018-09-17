@@ -1,8 +1,10 @@
 # mockMall  
 基于 jQuery + Koa2 制作的模拟商城（图片主要来源于JD.com）
 ## 页面展示
-  <img align="middle" src="https://raw.githubusercontent.com/StartFromThird/mockMall/master/show/index.PNG"/>  
-  <img align="middle" src="https://raw.githubusercontent.com/StartFromThird/mockMall/master/show/detail.PNG"/>  
+  <img align="middle" src="https://raw.githubusercontent.com/StartFromThird/mockMall/master/show/index.PNG"/>
+  <br />  
+  <img align="middle" src="https://raw.githubusercontent.com/StartFromThird/mockMall/master/show/detail.PNG"/>
+  <br />  
   <img align="middle" src="https://raw.githubusercontent.com/StartFromThird/mockMall/master/show/shopCar.PNG"/>  
 
 ## Setup  
@@ -40,6 +42,8 @@
 
 ```
 ## 记录  
+* 利用 Koa 起一个本地测试服务器及模拟接口  
+  详见：https://github.com/StartFromThird/JSpractice/blob/master/koa%E7%9B%B8%E5%85%B3.md  
 * 面向对象写法  
 ```javascript
   function G构造器(ele, obj){
@@ -75,28 +79,28 @@
   * 左侧导航  
     获取导航栏数据，填充字符串模板，并添加到对应节点处。对导航栏所有子元素添加mouseover/mouseout, 当移入时对应次级菜单显示，移出时对应次级菜单隐藏。
   * 轮播图  
-    init()先调用ulDOM, 生成图片栏DOM, 小圆点DOM, 给小圆点及背景加上初始样式。  
-    给左右按钮&底部小圆点添加点击事件，点击按钮修改当前应显示的图片序号this.tempI，再调用switchToI使图片栏滑动到对应位置，对应序号小圆点变色。  
-    switchToI  
-      图片栏滑动：修改left = 图片序号i * 单张图片显示宽度w  
-      ```javascript    
-      function slideAnimate( ele, i, w ){
-        ele.stop().animate({
-          left: -( i * w )
-        },500);
+    * init()先调用ulDOM, 生成图片栏DOM, 小圆点DOM, 给小圆点及背景加上初始样式。  
+    * 给左右按钮&底部小圆点添加点击事件，点击按钮修改当前应显示的图片序号this.tempI，再调用switchToI使图片栏滑动到对应位置，对应序号小圆点变色。  
+      switchToI  
+        图片栏滑动：修改left = 图片序号i * 单张图片显示宽度w  
+        ```javascript    
+        function slideAnimate( ele, i, w ){
+          ele.stop().animate({
+            left: -( i * w )
+          },500);
+        }
+        ```
+      修改小圆点样式：移除所有小圆点.redD样式, 序列为this.tempI的小圆点添加.redD样式。
+    * init()调用autoSlide，间隔2s触发左移按钮点击事件，实现图片栏自动滑动。  
+      图片栏添加事件，鼠标移入时清除定时器，图片栏停止滑动，鼠标移出时调用autoSlide继续滑动。  
+      ```javascript
+      // 初始化时定义一个定时器this.timer = null。 
+      autoSlide: function(){
+        _this.timer = setInterval(function(){
+          _this.toLeftBtnId.click();
+        },2000);
       }
       ```
-    修改小圆点样式：移除所有小圆点.redD样式, 序列为this.tempI的小圆点添加.redD样式。
-    init()调用autoSlide，间隔2s触发左移按钮点击事件，实现图片栏自动滑动。  
-    图片栏添加事件，鼠标移入时清除定时器，图片栏停止滑动，鼠标移出时调用autoSlide继续滑动。  
-    ```javascript
-    // 初始化时定义一个定时器this.timer = null。 
-    autoSlide: function(){
-      _this.timer = setInterval(function(){
-        _this.toLeftBtnId.click();
-      },2000);
-    }
-    ```
   * 底部享品质：获取数据，填充字符串模板，添加href属性，并添加到对应节点处。  
 
 * **商品详情页**  
@@ -117,9 +121,9 @@
     省市区列表的每个item的点击事件还需要存入选中item，更新显示地址内容，隐藏当前列表，获取次一级列表数据并仅显示次一级列表，修改次级tab样式内容，隐藏次级tab。  
     省/市/区域标签同样绑定事件，主要是标签样式修改，次级地址标签及列表隐藏, 以及清空次级地址在数组中对应数据。  
 
-* **购物车** 
+* **购物车**  
   依据用户id请求购物车内容数据, 生成购物车商品列表, checkbox绑定商品单价及数量作为属性  
-  * 商品选择
+  * 商品选择  
     点击单个商品的checkbox, 若是选中，则判断列表中checkbox数量和选中的checkbox数量是否相等，若相等则勾选全选checkbox; 若是取消选中，则全选checkbox也取消选中; 同时更新商品总价格。    
     点击全选的checkbox, 修改所有单个商品的checkbox及另一个全选的checkbox。  
   * 单个商品数量修改  
@@ -131,6 +135,4 @@
   * 计算商品总价  
     遍历选中商品，通过checkbox属性获取商品数量及单价计算商品总价并更新到页面。  
 
-* 利用 Koa 起一个本地测试服务器及模拟接口  
-  详见：https://github.com/StartFromThird/JSpractice/blob/master/koa%E7%9B%B8%E5%85%B3.md
 
