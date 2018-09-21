@@ -43,7 +43,7 @@
 ```
 ## 记录  
 * 利用 Koa 起一个本地测试服务器及模拟接口  
-  详见：https://github.com/StartFromThird/JSpractice/blob/master/koa%E7%9B%B8%E5%85%B3.md  
+  详见：https://github.com/StartFromThird/JSpractice/blob/master/00koa/koaMock%E6%95%B0%E6%8D%AE.md  
 * 面向对象写法  
 ```javascript
   function G构造器(ele, obj){
